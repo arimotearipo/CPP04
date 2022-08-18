@@ -24,7 +24,7 @@ Animal::~Animal(void)
 	cout << RED << "[ANIMAL CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
-void	makeSound(void)
-{
-	cout << "...?" << endl;
-}
+// void	makeSound(void)
+// {
+// 	cout << "...?" << endl;
+// }

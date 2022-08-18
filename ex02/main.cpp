@@ -37,7 +37,11 @@ void	testAnimals(int n)
 
 int	main(void)
 {
-	// testAnimals(30);
+	// Animal *a = new Animal; //this should give error
+	Animal *b = new Dog;
+	Animal *c = new Cat;
+	delete b;
+	delete c;
 	// system("leaks polymorphism");
 	return (0);
 }

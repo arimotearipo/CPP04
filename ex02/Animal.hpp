@@ -10,14 +10,14 @@ using std::string;
 class	Animal
 {
 	public:
+		Animal(void);
+		Animal(Animal const &tocopy);
 		Animal	&operator=(Animal const &toassign);
 		virtual ~Animal(void);
 
-		void	makeSound(void);
+		virtual void	makeSound(void) = 0;
 	protected:
 		string	_type;
-		Animal(void);
-		Animal(Animal const &tocopy);
 };
 
 #endif
