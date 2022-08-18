@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "colours.h"
+#include "Brain.hpp"
 
 using std::string;
 
@@ -12,9 +13,9 @@ class	Animal
 		Animal(void);
 		Animal(Animal const &tocopy);
 		Animal	&operator=(Animal const &toassign);
-		~Animal(void);
+		virtual ~Animal(void);
 
-		virtual void	makeSound(void);
+		void	makeSound(void);
 	protected:
 		string	_type;
 };

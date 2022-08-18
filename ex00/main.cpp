@@ -7,11 +7,9 @@ using std::endl;
 
 int	main(void)
 {
-	Dog	anjing;
-	anjing.makeSound();
-	cout << anjing.getType() << endl;
-	Cat	kucing;
-	kucing.makeSound();
-	cout << kucing.getType() << endl;
+	Animal *a = new Cat;
+	Animal *b = new Dog;
+	a->makeSound();
+	b->makeSound();
 	return (0);
 }
