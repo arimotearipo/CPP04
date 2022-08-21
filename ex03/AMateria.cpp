@@ -5,12 +5,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : _dropped(YES)
 {
 	cout << BLU << "[AMATERIA CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-AMateria::AMateria(string const &type)
+AMateria::AMateria(string const &type) : _dropped(YES)
 {
 	this->_type = type;
 	cout << BLU << "[AMATERIA CLASS CONSTRUCTED WITH PARAMETER]" << RESET << endl;
@@ -41,7 +41,27 @@ string const &AMateria::getType(void) const
 void	AMateria::use(ICharacter &target)
 {
 	if (getType() == "ice")
-		cout << WHT << "* shoots an ice bolt at " << target << " *" << RESET << endl;
-	else if (getType() == "cure")
-		cout << WHT << "* heals " << target << "'s wounds *" << RESET << endl;
+		cout << WHT << "* shoots an ice bolt at " << target.getName() << " *" << RESET << endl;
+	if (getType() == "cure")	
+		cout << WHT << "* heals " << target.getName() << "'s wounds *" << RESET << endl;
+}
+
+int		AMateria::getDroppedStatus(void)
+{
+	return (this->_dropped);
+}
+
+void	AMateria::setDroppedStatus(int status)
+{
+	if (status != YES || status != NO)
+	{
+		cout << RED << "WRONG INPUT" << RESET << endl;
+		return ;
+	}
+	this->_dropped = status;
+}
+
+string	AMateria::getType(void)
+{
+	return (this->_type);
 }
