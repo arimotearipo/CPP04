@@ -9,7 +9,7 @@ Dog::Dog(void) : _type("Dog")
 	cout << BLU << "[DOG CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Dog::Dog(Dog const &tocopy) : _type("Dog")
+Dog::Dog(Dog const &tocopy) : Animal(), _type("Dog")
 {
 	*this = tocopy;
 }

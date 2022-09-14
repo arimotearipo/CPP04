@@ -9,7 +9,7 @@ Cat::Cat(void) : _type("Cat")
 	cout << BLU << "[CAT CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Cat::Cat(Cat const &tocopy) : _type("Cat")
+Cat::Cat(Cat const &tocopy) : Animal(), _type("Cat")
 {
 	*this = tocopy;
 }

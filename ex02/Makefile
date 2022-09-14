@@ -1,6 +1,10 @@
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+MAIN = main.cpp
+
+OBJS = $(SRCS:.cpp=.o) main.o
+
+HEADERS = $(SRCS:.cpp=.hpp)
 
 CC = c++ -std=c++98
 
@@ -10,8 +14,11 @@ NAME = polymorphism
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADERS)
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS):	$(MAIN) $(SRCS)
+			$(CC) $(FLAGS) $(MAIN) $(SRCS) -c
 
 clean:		
 			rm -rf $(OBJS)

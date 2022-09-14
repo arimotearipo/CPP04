@@ -1,6 +1,10 @@
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+MAIN = main.cpp
+
+OBJS = $(SRCS:.cpp=.o) main.o
+
+HEADERS = $(SRCS:.cpp=.hpp)
 
 CC = c++ -std=c++98
 
@@ -12,6 +16,9 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS):	$(SRCS) $(MAIN) $(HEADERS)
+			$(CC) $(FLAGS) $(SRCS) $(MAIN) -c
 
 clean:		
 			rm -rf $(OBJS)

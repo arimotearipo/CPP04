@@ -16,7 +16,8 @@ class	Dog : public Animal
 		void	makeSound(void);
 
 		//getters
-		string	getType(void);
+		string	const &getType(void) const;
+		void	expressBrain(unsigned n) const;
 	private:
 		string 	_type;
 		Brain	*_brain;

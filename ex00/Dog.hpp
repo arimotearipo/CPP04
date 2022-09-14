@@ -16,7 +16,7 @@ class	Dog : public Animal
 		void	makeSound(void);
 
 		//getters
-		string	getType(void);
+		string	const &getType(void) const;
 	private:
 		string _type;
 };

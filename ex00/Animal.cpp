@@ -3,28 +3,30 @@
 using std::cout;
 using std::endl;
 
-Animal::Animal(void)
+Animal::Animal(void) : _type("")
 {
 	cout << BLU << "[ANIMAL CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Animal::Animal(Animal const &tocopy)
+Animal::Animal(Animal const &tocopy) : _type("")
 {
 	*this = tocopy;
+	cout << BLU "[ANIMAL CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
 Animal	&Animal::operator=(Animal const &toassign)
 {
 	this->_type = toassign._type;
+	cout << BLU "[ANIMAL CLASS CONSTRUCTED BY ASSIGNMENT]" RESET << endl;
 	return (*this);
 }
 
 Animal::~Animal(void)
 {
-	cout << RED << "[ANIMAL CLASS DECONSTRUCTED]" << RESET << endl;
+	cout << BLU << "[ANIMAL CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
 void	Animal::makeSound(void)
 {
-	cout << "...?" << endl;
+	cout << BLU "Animal::makeSound() : ...?" RESET << endl;
 }
