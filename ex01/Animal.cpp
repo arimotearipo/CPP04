@@ -26,7 +26,7 @@ Animal::~Animal(void)
 	cout << BLU << "[ANIMAL CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
-void	makeSound(void)
+void	Animal::makeSound(void)
 {
 	cout << BLU "Animal::makeSound(): " << BGRN << "...?" RESET << endl;
 }
