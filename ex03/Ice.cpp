@@ -1,27 +1,37 @@
 #include "Ice.hpp"
+#include "colours.h"
 
-using std::string;
 using std::cout;
 using std::endl;
 
-Ice::Ice(void)
+Ice::Ice(void) : AMateria("ice")
 {
-	cout << BLU << "[ICE CLASS CONSTRUCTED]" << RESET << endl;
+	cout << BLU "[ICE CLASS CONSTRUCTED]" RESET << endl;
 }
 
-Ice::Ice(Ice const &tocopy)
+Ice::Ice(Ice const &tocopy) : AMateria(tocopy.getType())
 {
-	cout << BLU << "[ICE CLASS CONSTRUCTED BY COPY]" << RESET << endl;
 	*this = tocopy;
+	cout << BLU "[ICE CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
-Ice	&Ice::operator=(Ice const &toassign)
+Ice::~Ice(void)
 {
-	cout << BLU << "[ICE CLASS CONSTRUCTED BY ASSIGNMENT]" << RESET << endl;
-	this->_type = toassign._type;
+	cout << RED "[ICE CLASS DECONSTRUCTED]" RESET << endl;
 }
 
-AMateria	*Ice::clone(void) const
+Ice &Ice::operator=(Ice const &toassign)
 {
-	return (new Ice);
+	(void)toassign; // doesn't make sense to copy the type
+	return (*this);
+}
+
+Ice	*Ice::clone(void) const
+{
+	return (new Ice(*this));
+}
+
+void	Ice::use(ICharacter &target)
+{
+	cout << GRN "* shoots an ice bolt at " << target.getName() << " *" RESET << endl;
 }

@@ -2,27 +2,30 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
-#include "Floor.hpp"
+#include "AMateria.hpp"
+
+using std::string;
 
 class Character : public ICharacter
 {
+	protected:
+		string		_name;
+		AMateria*	_inventory[4];
+
 	public:
 		Character(void);
 		Character(string const &name);
 		Character(Character const &tocopy);
-		Character &operator=(Character const &toassign);
-		~Character(void);
+		virtual ~Character(void);
 
-		string const 	&getName() const;
-		void			equip(AMateria *m);
-		void			unequip(int idx);
-		void 			use(int idx, ICharacter &target);
-	private:
-		string			_name;
-		AMateria		*_inv[4];
-		int				_inv_count;
-		static	Floor	_floor;
-		
+		Character &operator=(Character const &toassign);
+
+		void	equip(AMateria *m);
+		void	unequip(int idx);
+		void	use(int idx, ICharacter &target);
+
+		string const	&getName(void) const;
+		void	showInventory(void) const;
 };
 
 #endif

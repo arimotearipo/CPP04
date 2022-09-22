@@ -1,37 +1,37 @@
 #include "Cure.hpp"
+#include "colours.h"
 
 using std::cout;
 using std::endl;
-using std::string;
 
-Cure::Cure(void)
+Cure::Cure(void) : AMateria("cure")
 {
-	cout << BLU << "[CURE CLASS CONSTRUCTED]" << RESET << endl;
+	cout << BLU "[CURE CLASS CONSTRUCTED]" RESET << endl;
 }
 
-Cure::Cure(Cure const &tocopy)
+Cure::Cure(Cure const &tocopy) : AMateria(tocopy.getType())
 {
-	cout << BLU << "[CURE CLASS CONSTRUCTED BY COPY]" << RESET << endl;
-	this->_type = tocopy._type;
-}
-
-Cure	&Cure::operator=(Cure const &toassign)
-{
-	cout << BLU << "[CURE CLASS CONSTRUCTED BY ASSIGNMENT]" << RESET << endl;
-	*this = toassign;
+	*this = tocopy;
+	cout << BLU "[CURE CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
 Cure::~Cure(void)
 {
-	cout << RED << "[CURE CLASS DECONSTRUCTED]" << RESET << endl;
+	cout << RED "[CURE CLASS DECONSTRUCTED]" RESET << endl;
+}
+
+Cure	&Cure::operator=(Cure const &toassign)
+{
+	(void)toassign; // doesn't make sense to copy the type
+	return (*this);
+}
+
+Cure	*Cure::clone(void) const
+{
+	return (new Cure(*this));
 }
 
 void	Cure::use(ICharacter &target)
 {
-	cout << WHT << "* heals " << target << "'s wounds *" << RESET << endl;
-}
-
-AMateria *Cure::clone(void) const
-{
-	return (new Cure);
+	cout << GRN "* heals " << target.getName() << "’s wounds *" RESET << endl;
 }

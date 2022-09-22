@@ -1,25 +1,24 @@
-SRCS = 	main.cpp \
-		AMateria.cpp \
-		Character.cpp \
-		Cure.cpp \
-		Floor.cpp \
-		Ice.cpp \
-		ICharacter.cpp \
-		IMateriaSource.cpp \
-		MateriaSource.cpp \
+SRCS = AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+MAIN = main.cpp
+
+OBJS = $(SRCS:.cpp=.o) main.o
+
+HEADER = $(SRCS:.cpp=.hpp) ICharacter.hpp IMateriaSource.hpp
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-NAME = interface
+NAME = finalfantasy
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(HEADER)
 			$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
+$(OBJS):	$(SRCS) $(MAIN) $(HEADER)
+			$(CC) $(FLAGS) $(SRCS) $(MAIN) -c
 
 clean:		
 			rm -rf $(OBJS)
@@ -27,4 +26,7 @@ clean:
 fclean:		clean
 			rm -rf $(NAME)
 
-re:			fclean	all
+re:			fclean all
+
+l:			all
+			./finalfantasy

@@ -2,21 +2,23 @@
 #define ICHARACTER_HPP
 
 #include "AMateria.hpp"
+#include <iostream>
 
 using std::string;
 
-class ICharacter
+class	AMateria;
+
+class	ICharacter
 {
 	public:
-		ICharacter(void);
-		ICharacter(ICharacter const &c);
-		ICharacter &operator=(ICharacter const &c);
-		virtual ~ICharacter(void);
-
-		virtual string const &getName() const = 0;
+		virtual ~ICharacter() {};
+	
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
+
+		virtual string const &getName(void) const = 0;
+		virtual void	showInventory(void) const = 0;
 };
 
 #endif

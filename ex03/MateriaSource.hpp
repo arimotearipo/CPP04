@@ -5,17 +5,19 @@
 
 class	MateriaSource : public IMateriaSource
 {
+	protected:
+		static const unsigned	_invSize = 4;
+		AMateria				*_inventory[_invSize];
+
 	public:
-		MateriaSource();
-		MateriaSource(const MateriaSource& m_src);
-		MateriaSource& operator=(const MateriaSource& m_src);
-		~MateriaSource();
+		MateriaSource(void);
+		MateriaSource(MateriaSource const &tocopy);
+		~MateriaSource(void);
 
-		void           LearnMateria(AMateria* materia);
-		AMateria*      CreateMateria(std::string const& type);
+		MateriaSource &operator=(MateriaSource const &toassign);
 
-	private:
-		AMateria	*_materias[4];
+		void		learnMateria(AMateria* m);
+		AMateria* 	createMateria(std::string const &type);
 };
 
 #endif

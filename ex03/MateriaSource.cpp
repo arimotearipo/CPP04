@@ -1,71 +1,70 @@
 #include "MateriaSource.hpp"
+#include "colours.h"
+#include <cstdlib>
 
 using std::cout;
 using std::endl;
+using std::string;
 
 MateriaSource::MateriaSource(void)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->_materias[i] != NULL)
-			delete this->_materias[i];
-		this->_materias[i] = NULL;
-	}
-	cout << BLU << "[MATERIASOURCE CLASS CONSTRUCTED]" << RESET << endl;
+	for (unsigned i = 0; this->_invSize; i++)
+		this->_inventory[i] = NULL;
+	cout << BLU "[MATERIASOURCE CLASS CONSTRUCTED]" RESET << endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &tocopy)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->_materias[i] != NULL)
-			delete this->_materias[i];
-		this->_materias[i] = tocopy._materias[i]->clone();
-	}
-		cout << BLU << "[MATERIASOURCE CLASS CONSTRUCTED BY COPY]" << RESET << endl;
-}
-
-MateriaSource &MateriaSource::operator=(MateriaSource const &toassign)
-{
-	*this = toassign;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->_materias[i] != NULL)
-			delete this->_materias[i];
-		this->_materias[i] = toassign._materias[i];
-	}
-	cout << BLU << "[MATERIASOURCE CLASS CONSTRUCTED BY ASSIGNMENT]" << RESET << endl;
-	return (*this);
+	*this = tocopy;
+	cout << BLU "[MATERIASOURCE CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
 MateriaSource::~MateriaSource(void)
 {
-	for (int i = 0; i < 4; i++)
+	for (unsigned i = 0; i < this->_invSize; i++)
 	{
-		if (this->_materias[i] != NULL)
-			delete this->_materias[i];
-		this->_materias[i] = NULL;
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
 	}
-	cout << RED << "[MATERIASOURCE CLASS DECONSTRUCTED]" << RESET << endl;
+	cout << RED "[MATERIASOURCE CLASS DECONSTRUCTED]" RESET << endl;
 }
 
-void	MateriaSource::LearnMateria(AMateria *materia)
+MateriaSource	&MateriaSource::operator=(MateriaSource const &toassign)
 {
-	for (int i = 0; i < 4; i++)
+	if (this != &toassign)
 	{
-		if (this->_materias[i] == NULL)
-			this->_materias[i] = materia;
-		break;
+		for (unsigned i = 0; i < this->_invSize; i++)
+		{
+			if (this->_inventory[i] != NULL)
+				delete this->_inventory[i];
+			if (toassign._inventory[i] != NULL)
+				this->_inventory[i] = toassign._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL;
+		}
 	}
+	return (*this);
 }
 
-AMateria	*MateriaSource::CreateMateria(string const &type)
+void	MateriaSource::learnMateria(AMateria *m)
 {
-	for (int i = 0; i < 4; i++)
+	for (unsigned i = 0; i < this->_invSize; i++)
 	{
-		if (this->_materias[i] != NULL && this->_materias[i]->getType() == type)
-			return (this->_materias[i]->clone());
+		if (this->_inventory[i] == NULL)
+		{
+			_inventory[i] = m;
+			return ;
+		}
 	}
-	cout << RED << "No Materia of that type found" << RESET << endl;
+	delete m;
+}
+
+AMateria	*MateriaSource::createMateria(string const &type)
+{
+	for (unsigned i = 0; i < _invSize; i++)
+	{
+		if (_inventory[i] != NULL && _inventory[i]->getType() == type)
+			return (_inventory[i]->clone());
+	}
 	return (NULL);
 }
