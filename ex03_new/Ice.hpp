@@ -1,6 +1,5 @@
 #ifndef ICE_HPP
 #define ICE_HPP
-
 #include "AMateria.hpp"
 
 class	Ice : public AMateria
@@ -9,12 +8,12 @@ class	Ice : public AMateria
 
 	public:
 		Ice(void);
-		Ice(string const &type);
-		~Ice(void);
+		Ice(Ice const &tocopy);
+		virtual ~Ice(void);
 
-		Ice &operator=(Ice const &tocopy);
+		Ice &operator=(Ice const &toassign);
 
-		Ice*	clone() const;
+		Ice*	clone(void) const;
 		void	use(ICharacter &target);
 };
 

@@ -7,7 +7,7 @@ class Cure : public AMateria
 	public:
 		Cure(void);
 		Cure(Cure const &tocopy);
-		~Cure(void);
+		virtual ~Cure(void);
 
 		Cure	&operator=(Cure const &tocopy);
 

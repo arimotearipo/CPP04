@@ -9,8 +9,9 @@ Ice::Ice(void) : AMateria("ice")
 	cout << BLU "[ICE CLASS CONSTRUCTED]" RESET << endl;
 }
 
-Ice::Ice(string const& type) : AMateria(type)
+Ice::Ice(Ice const &tocopy) : AMateria(tocopy.getType())
 {
+	*this = tocopy;
 	cout << BLU "[ICE CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
@@ -19,9 +20,9 @@ Ice::~Ice(void)
 	cout << RED "[ICE CLASS DECONSTRUCTED]" RESET << endl;
 }
 
-Ice &Ice::operator=(Ice const &tocopy)
+Ice &Ice::operator=(Ice const &toassign)
 {
-	this->_type = tocopy.getType();
+	(void)toassign; // doesn't make sense to copy the type
 	return (*this);
 }
 

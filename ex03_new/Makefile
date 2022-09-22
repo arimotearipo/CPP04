@@ -1,14 +1,14 @@
-SRCS = AMateria.cpp ICharacter.cpp Ice.cpp
+SRCS = AMateria.cpp Ice.cpp Cure.cpp Character.cpp
 
 MAIN = main.cpp
 
 OBJS = $(SRCS:.cpp=.o) main.o
 
-HEADER = $(SRCS:.cpp=.hpp)
+HEADER = $(SRCS:.cpp=.hpp) ICharacter.hpp
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 
 NAME = finalfantasy
 

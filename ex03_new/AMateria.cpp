@@ -22,8 +22,10 @@ AMateria::~AMateria(void)
 
 AMateria &AMateria::operator=(AMateria const &toassign)
 {
-	this->_type = toassign.getType();
+	if (this != &toassign)
+		this->_type = toassign.getType();
 	return (*this);
+	// this->_type = toassign.getType();
 }
 
 string const &AMateria::getType(void) const

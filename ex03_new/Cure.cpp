@@ -11,6 +11,7 @@ Cure::Cure(void) : AMateria("cure")
 
 Cure::Cure(Cure const &tocopy) : AMateria(tocopy.getType())
 {
+	*this = tocopy;
 	cout << BLU "[CURE CLASS CONSTRUCTED BY COPY]" RESET << endl;
 }
 
@@ -21,8 +22,7 @@ Cure::~Cure(void)
 
 Cure	&Cure::operator=(Cure const &toassign)
 {
-	if (this != &toassign)
-		this->_type = toassign.getType();
+	(void)toassign; // doesn't make sense to copy the type
 	return (*this);
 }
 
