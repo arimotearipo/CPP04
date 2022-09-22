@@ -2,18 +2,19 @@
 #define AMATERIA_HPP
 
 #include <iostream>
+#include "ICharacter.hpp"
 
 using std::string;
 
 class	AMateria
 {
 	private:
-		AMateria(void);
 
 	protected:
 		string		_type;
 
 	public:
+		AMateria(void); // this is just to comply with the orthodox canonical form
 		AMateria(string const& type);
 		AMateria(AMateria const& tocopy);
 		~AMateria(void);

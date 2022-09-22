@@ -20,12 +20,19 @@ AMateria::~AMateria(void)
 	cout << RED "[AMATERIA DECONSTRUCTED]" RESET << endl;
 }
 
-AMateria&	const AMateria::operator=(AMateria const& toassign)
+AMateria &AMateria::operator=(AMateria const &toassign)
 {
 	this->_type = toassign.getType();
+	return (*this);
 }
 
 string const &AMateria::getType(void) const
 {
 	return (this->_type);
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	(void)target; // just tempoerary
+	cout << WHT "using some unknown Materia on target" RESET << endl;
 }
