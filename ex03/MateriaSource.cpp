@@ -8,7 +8,7 @@ using std::string;
 
 MateriaSource::MateriaSource(void)
 {
-	for (unsigned i = 0; this->_invSize; i++)
+	for (unsigned i = 0;  i < this->_invSize; i++)
 		this->_inventory[i] = NULL;
 	cout << BLU "[MATERIASOURCE CLASS CONSTRUCTED]" RESET << endl;
 }

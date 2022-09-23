@@ -18,7 +18,6 @@ AMateria::AMateria(AMateria const& tocopy) : _type(tocopy.getType())
 AMateria::~AMateria(void)
 {
 	cout << RED "[AMATERIA DECONSTRUCTED]" RESET << endl;
-	cout << BYEL "WHAT???" RESET << endl;
 }
 
 AMateria &AMateria::operator=(AMateria const &toassign)

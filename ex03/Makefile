@@ -8,7 +8,7 @@ HEADER = $(SRCS:.cpp=.hpp) ICharacter.hpp IMateriaSource.hpp
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 
 NAME = finalfantasy
 

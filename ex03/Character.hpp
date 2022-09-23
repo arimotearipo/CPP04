@@ -26,6 +26,7 @@ class Character : public ICharacter
 
 		string const	&getName(void) const;
 		void	showInventory(void) const;
+
 };
 
 #endif

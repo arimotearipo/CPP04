@@ -5,8 +5,6 @@
 using std::cout;
 using std::endl;
 
-class Floor;
-
 Character::Character(void) : _name("unnamed")
 {
 	for (unsigned i = 0; i < 4; i++)
@@ -69,17 +67,22 @@ void	Character::equip(AMateria *m)
 void	Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3 || this->_inventory[idx] == NULL)
+	{
+		cout << "Invalid index or inventory location is already empty" << endl;
 		return ;
-	// need to assign the AMateria at idx to somewhere else. MUST NOT DELETE
+	}
 	this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx > 3 || this->_inventory[idx] == NULL)
+	{
+		cout << GRN "Kaput." RESET << endl;
 		return ;
+	}
 	this->_inventory[idx]->use(target);
-	cout << GRN << this->_name << " used " << this->_inventory[idx] << " at " << target.getName() << RESET << endl;
+	cout << GRN << this->_name << " used " << this->_inventory[idx]->getType() << " at " << target.getName() << RESET << endl;
 }
 
 string const &Character::getName(void) const
@@ -93,10 +96,8 @@ void	Character::showInventory(void) const
 	for (unsigned i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] == NULL)
-		{
-			cout << i << ": " << "empty" << " " << endl; 
-			continue ;
-		}
-		cout << i << ": " << this->_inventory[i]->getType() << " " << endl;
+			cout << i << ": " << "[EMPTY]" << " " << endl; 
+		else
+			cout << i << ": " << this->_inventory[i]->getType() << " " << endl;
 	}
 }
