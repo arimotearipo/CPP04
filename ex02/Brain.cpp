@@ -39,11 +39,10 @@ Brain::~Brain(void)
 	cout << RED << "[BRAIN CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
-void	Brain::expressYourself(void)
+void	Brain::expressYourself(unsigned n)
 {
-	cout << YEL;
-	for (int i = 0; i < 5; i++)
+	for (unsigned i = 0; i < n; i++)
 	{
-		cout << "idea[" << i << "]: " << this->_ideas[i] << " " << RESET << endl;
+		cout << "idea[" << i << "]: " << this->_ideas[i] << " " << endl;
 	}
 }

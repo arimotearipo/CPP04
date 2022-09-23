@@ -70,12 +70,15 @@ void	testCopy(void)
 void	testCreatingAnimal(void)
 {
 	cout << BYEL "Trying to create an instance of the Animal class" RESET << endl;
-	Animal a;
+	// Animal a; /* Uncomment this line to test */
 }
 
 int	main(void)
 {
+	// testCreatingAnimal();
 	// testAnimals(6);
+	// testCopy();
+	testAssignment();
 	// Animal *a = new Animal; //this should give error
 	// Animal *b = new Dog;
 	// Animal *c = new Cat;

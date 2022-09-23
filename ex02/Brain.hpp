@@ -15,7 +15,7 @@ class Brain
 		Brain &operator=(Brain const &toassign);
 		~Brain(void);
 
-		void	expressYourself(void);
+		void	expressYourself(unsigned n);
 	private:
 		string	_ideas[100];
 };
