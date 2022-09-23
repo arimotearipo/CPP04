@@ -11,10 +11,10 @@ class	Cat : public Animal
 		Cat &operator=(Cat const &toassign);
 		~Cat(void);
 
-		void	makeSound(void);
+		void	makeSound(void) const;
 
 		//getters
-		string	const &getType(void) const;
+		// string	const &getType(void) const;
 	private:
 		string _type;
 };

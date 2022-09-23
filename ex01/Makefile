@@ -8,7 +8,7 @@ HEADERS = $(SRCS:.cpp=.hpp)
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 NAME = polymorphism
 

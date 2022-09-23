@@ -35,11 +35,6 @@ void	Cat::makeSound(void)
 	cout << YEL "Cat::makeSound() " << BGRN << "Meow meow" << RESET << endl;
 }
 
-string	const &Cat::getType(void) const
-{
-	return (this->_type);
-}
-
 void	Cat::expressBrain(unsigned n) const
 {
 	this->_brain->expressYourself(n);

@@ -9,14 +9,18 @@ Cat::Cat(void) : _type("Cat")
 	cout << BLU << "[CAT CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Cat::Cat(Cat const &tocopy) : Animal(), _type("Cat")
+Cat::Cat(Cat const &tocopy) : Animal(), _type(tocopy.getType()), _brain(new Brain(*(tocopy._brain)))
 {
-	*this = tocopy;
+	cout << YEL << "[CAT CLASS CONSTRUCTED BY COPY]" << RESET << endl;
 }
 
 Cat	&Cat::operator=(Cat const &toassign)
 {
 	this->_type = toassign._type;
+	if (this->_brain != NULL)
+		delete this->_brain;
+	this->_brain = new Brain(*(toassign._brain));
+	cout << YEL << "[CAT CLASS CONSTRUCTED BY ASSIGNMENT]" << RESET << endl;
 	return (*this);
 }
 
@@ -31,7 +35,7 @@ void	Cat::makeSound(void)
 	cout << GRN << "Meow meow" << RESET << endl;
 }
 
-string	Cat::getType(void)
+void	Cat::expressBrain(unsigned n) const
 {
-	return (this->_type);
+	this->_brain->expressYourself(n);
 }

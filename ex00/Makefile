@@ -1,4 +1,4 @@
-SRCS = Animal.cpp Cat.cpp Dog.cpp
+SRCS = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 MAIN = main.cpp
 
@@ -8,7 +8,7 @@ HEADERS = $(SRCS:.cpp=.hpp)
 
 CC = c++ -std=c++98
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 NAME = polymorphism
 
@@ -27,3 +27,6 @@ fclean:		clean
 			rm -rf $(NAME)
 
 re:			fclean all
+
+l:			all
+			./polymorphism

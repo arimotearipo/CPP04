@@ -20,13 +20,7 @@ void	testAnimals(int n)
 		else
 			arr[i] = new Dog;
 	}
-	cout << endl;
-	cout << UWHT << "WRITING IDEAS..." << RESET << endl;
-	for (int i = 0; i < n; i++)
-	{
-		arr[i]->expressBrain(5);
-	}
-	cout << endl;
+	cout << endl << endl;
 	cout << UWHT << "DELETING " << n << " ANIMALS..." << RESET << endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -35,9 +29,45 @@ void	testAnimals(int n)
 	}
 }
 
+
+
+void	testAssignment(void)
+{
+	cout << BYEL "TESTING ASSIGNMENT" RESET << endl;
+	Dog a;
+	Dog b;
+	cout << "Printing Dog a's brain" << endl;
+	a.expressBrain(5);
+	cout << "Printing Dog b's brain" << endl;
+	b.expressBrain(5);
+	cout << "Assigning Dog b to Dog a" << endl;
+	a = b;
+	cout << "Printing Dog a's brain" << endl;
+	a.expressBrain(5);
+	cout << "Printing Dog b's brain" << endl;
+	b.expressBrain(5);
+}
+
+void	testCopy(void)
+{
+	cout << BYEL "TESTING COPY CONSTRUCTOR" RESET << endl;
+	Dog a;
+	cout << "Printing Dog a's brain before creating Dog b" << endl;
+	a.expressBrain(5);
+	cout << endl;
+	cout << "Creating Dog b by copying dog a" << endl;
+	Dog b(a);
+	cout << "Printing Dog a's brain" << endl;
+	a.expressBrain(5);
+	cout << "Printing Dog b's brain" << endl;
+	b.expressBrain(5);
+}
+
 int	main(void)
 {
-	testAnimals(30);
+	// testAnimals(30);
+	testAssignment();
+	testCopy();
 
 	// srand(time(NULL));
 	

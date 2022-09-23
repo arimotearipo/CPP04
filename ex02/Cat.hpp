@@ -13,8 +13,8 @@ class	Cat : public Animal
 
 		void	makeSound(void);
 
-		//getters
-		string	getType(void);
+
+		void	expressBrain(unsigned n) const;
 	private:
 		string _type;
 		Brain	*_brain;

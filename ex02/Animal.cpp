@@ -24,6 +24,11 @@ Animal::~Animal(void)
 	cout << RED << "[ANIMAL CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
+string	const &Animal::getType(void) const
+{
+	return (this->_type);
+}
+
 // void	makeSound(void)
 // {
 // 	cout << "...?" << endl;

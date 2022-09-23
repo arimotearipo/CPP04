@@ -17,7 +17,7 @@ class	Animal
 		virtual ~Animal(void);
 
 		void	makeSound(void);
-
+		string	const &getType(void) const;
 	protected:
 		string	_type;
 };

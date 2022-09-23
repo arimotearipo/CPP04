@@ -13,10 +13,10 @@ class	Dog : public Animal
 		Dog &operator=(Dog const &toassign);
 		~Dog(void);
 
-		void	makeSound(void);
+		void	makeSound(void) const;
 
 		//getters
-		string	const &getType(void) const;
+		// string	const &getType(void) const;
 	private:
 		string _type;
 };

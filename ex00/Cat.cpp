@@ -26,12 +26,12 @@ Cat::~Cat(void)
 	cout << YEL << "[CAT CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
 	cout << YEL << "Cat::makeSound(): " << BGRN << "Meow meow" << RESET << endl;
 }
 
-string	const &Cat::getType(void) const
-{
-	return (this->_type);
-}
+// string	const &Cat::getType(void) const
+// {
+// 	return (this->_type);
+// }

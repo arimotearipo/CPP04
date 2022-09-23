@@ -9,14 +9,18 @@ Dog::Dog(void) : _type("Dog")
 	cout << BLU << "[DOG CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Dog::Dog(Dog const &tocopy) : Animal(), _type("Dog")
+Dog::Dog(Dog const &tocopy) : Animal(), _type(tocopy.getType()), _brain(new Brain(*(tocopy._brain)))
 {
-	*this = tocopy;
+	cout << CYN << "[DOG CLASS CONSTRUCTED BY COPY]" << RESET << endl;
 }
 
 Dog	&Dog::operator=(Dog const &toassign)
 {
 	this->_type = toassign._type;
+	if (this->_brain != NULL)
+		delete this->_brain;
+	this->_brain = new Brain(*(toassign._brain));
+	cout << CYN << "[DOG CLASS CONSTRUCTED BY ASSIGNMENT]" << RESET << endl;
 	return (*this);
 }
 
@@ -31,7 +35,7 @@ void	Dog::makeSound(void)
 	cout << GRN << "Woof woof" << RESET << endl;
 }
 
-string	Dog::getType(void)
+void	Dog::expressBrain(unsigned n) const
 {
-	return (this->_type);
+	this->_brain->expressYourself(n);
 }

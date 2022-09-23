@@ -35,11 +35,6 @@ void	Dog::makeSound(void)
 	cout << CYN "Dog::makeSound() " << BGRN << "Woof woof" << RESET << endl;
 }
 
-string	const &Dog::getType(void) const
-{
-	return (this->_type);
-}
-
 void	Dog::expressBrain(unsigned n) const
 {
 	this->_brain->expressYourself(n);

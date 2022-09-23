@@ -30,3 +30,8 @@ void	Animal::makeSound(void)
 {
 	cout << BLU "Animal::makeSound(): " << BGRN << "...?" RESET << endl;
 }
+
+string	const &Animal::getType(void) const
+{
+	return (this->_type);
+}

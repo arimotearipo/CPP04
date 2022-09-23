@@ -12,9 +12,11 @@ class	Animal
 		Animal(void);
 		Animal(Animal const &tocopy);
 		Animal	&operator=(Animal const &toassign);
-		~Animal(void);
+		virtual ~Animal(void);
 
-		virtual void	makeSound(void);
+		virtual void	makeSound(void) const;
+
+		string	const &getType(void) const;
 	protected:
 		string	_type;
 };

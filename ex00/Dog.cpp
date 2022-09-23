@@ -26,12 +26,12 @@ Dog::~Dog(void)
 	cout << MAG << "[DOG CLASS DECONSTRUCTED]" << RESET << endl;
 }
 
-void	Dog::makeSound(void)
+void	Dog::makeSound(void) const
 {
 	cout << MAG << "Dog::makeSound(): " << BGRN << "Woof woof" << RESET << endl;
 }
 
-string	const &Dog::getType(void) const
-{
-	return (this->_type);
-}
+// string	const &Dog::getType(void) const
+// {
+// 	return (this->_type);
+// }
