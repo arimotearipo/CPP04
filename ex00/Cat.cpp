@@ -3,12 +3,13 @@
 using std::cout;
 using std::endl;
 
-Cat::Cat(void) : _type("Cat")
+Cat::Cat(void) : Animal()
 {
+	Animal::_type = "Cat";
 	cout << YEL << "[CAT CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Cat::Cat(Cat const &tocopy) : Animal(), _type("Cat")
+Cat::Cat(Cat const &tocopy) : Animal()
 {
 	*this = tocopy;
 	cout << YEL << "[CAT CLASS CONSTRUCTED BY COPY]" << RESET << endl;

@@ -40,7 +40,7 @@ using std::endl;
 // }
 
 // main() to test Character
-int	main(void)
+int	test(void)
 {
 	cout << BYEL "TESTING CHARACTERS" RESET << endl;
 	cout << UWHT "Creating a character (a) named Alpha..." RESET << endl;
@@ -97,5 +97,15 @@ int	main(void)
 	a->use(idx2, *b);
 	cout << endl;
 	// system("leaks finalfantasy");
+
+	delete a;
+	delete b;
+	delete ms;
+	return (0);
+}
+
+int	main(void)
+{
+	test();
 	return (0);
 }

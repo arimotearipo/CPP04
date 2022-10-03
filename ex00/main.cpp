@@ -17,6 +17,9 @@ void testCorrect()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	delete meta;
+	delete i;
+	delete j;
 }
 
 void testWrong()
@@ -29,6 +32,9 @@ void testWrong()
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
+	delete i;
+	delete j;
+	delete meta;
 }
 
 int	main(void)

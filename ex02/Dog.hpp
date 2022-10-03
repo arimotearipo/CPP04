@@ -17,7 +17,6 @@ class	Dog : public Animal
 
 		void	expressBrain(unsigned n) const;
 	private:
-		string 	_type;
 		Brain	*_brain;
 };
 

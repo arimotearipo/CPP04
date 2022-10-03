@@ -3,14 +3,16 @@
 using std::cout;
 using std::endl;
 
-Dog::Dog(void) : _type("Dog")
+Dog::Dog(void) : Animal()
 {
+	Animal::_type = "Dog";
 	this->_brain = new Brain();
 	cout << CYN << "[DOG CLASS CONSTRUCTED]" << RESET << endl;
 }
 
-Dog::Dog(Dog const &tocopy) : Animal(), _type(tocopy.getType()), _brain(new Brain(*(tocopy._brain)))
+Dog::Dog(Dog const &tocopy) : Animal(), _brain(new Brain(*(tocopy._brain)))
 {
+	*this = tocopy;
 	cout << CYN << "[DOG CLASS CONSTRUCTED BY COPY]" << RESET << endl;
 }
 
