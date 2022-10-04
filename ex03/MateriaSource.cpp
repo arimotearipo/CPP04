@@ -61,10 +61,10 @@ void	MateriaSource::learnMateria(AMateria *m)
 
 AMateria	*MateriaSource::createMateria(string const &type)
 {
-	for (unsigned i = 0; i < _invSize; i++)
+	for (unsigned i = 0; i < this->_invSize; i++)
 	{
-		if (_inventory[i] != NULL && _inventory[i]->getType() == type)
-			return (_inventory[i]->clone());
+		if (this->_inventory[i] != NULL && this->_inventory[i]->getType() == type)
+			return (this->_inventory[i]->clone());
 	}
 	return (NULL);
 }

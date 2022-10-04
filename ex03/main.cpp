@@ -40,7 +40,7 @@ using std::endl;
 // }
 
 // main() to test Character
-int	test(void)
+void	test(void)
 {
 	cout << BYEL "TESTING CHARACTERS" RESET << endl;
 	cout << UWHT "Creating a character (a) named Alpha..." RESET << endl;
@@ -49,23 +49,20 @@ int	test(void)
 
 	cout << UWHT "Creating 3 Materias using MateriaSource..." RESET << endl;
 	IMateriaSource *ms = new MateriaSource();
-	ms->learnMateria(new Ice());
+	ms->learnMateria(new Cure());
 	ms->learnMateria(new Cure());
 	ms->learnMateria(new Ice());
-	ms->learnMateria(new Cure());
 	cout << endl;
 
 	cout << UWHT "Character (a) equipping Materias..." RESET << endl;
 	AMateria *tmp;
-	tmp = ms->createMateria("ice");
+	tmp = ms->createMateria("cure");
+	a->equip(tmp);
+	tmp = ms->createMateria("cure");
 	a->equip(tmp);
 	tmp = ms->createMateria("cure");
 	a->equip(tmp);
 	tmp = ms->createMateria("ice");
-	a->equip(tmp);
-	tmp = ms->createMateria("cure");
-	a->equip(tmp);
-	tmp = ms->createMateria("cure");
 	a->equip(tmp);
 	cout << endl;
 
@@ -96,16 +93,40 @@ int	test(void)
 	cout << UWHT "Making Alpha use item at idx " << idx2 << " towards Bravo" RESET << endl;
 	a->use(idx2, *b);
 	cout << endl;
-	// system("leaks finalfantasy");
+	system("leaks finalfantasy");
 
+	cout << BYEL "ENDING PROGRAMME" RESET << endl;
 	delete a;
 	delete b;
 	delete ms;
-	return (0);
+
+}
+
+void	test2(void)
+{
+	ICharacter *a = new Character("alpha");
+	IMateriaSource *ms = new MateriaSource();
+	AMateria	*temp;
+
+	ms->learnMateria(new Ice());
+	ms->learnMateria(new Cure());
+	ms->learnMateria(new Ice());
+	temp = ms->createMateria("cure");
+	a->equip(temp);
+	temp = ms->createMateria("ice");
+	a->equip(temp);
+	temp = ms->createMateria("ice");
+	a->equip(temp);
+	temp = ms->createMateria("ice");
+	a->equip(temp);
+	a->showInventory();
+
+	delete a;
+	delete ms;
 }
 
 int	main(void)
 {
-	test();
+	test2();
 	return (0);
 }

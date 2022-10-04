@@ -5,6 +5,8 @@
 using std::cout;
 using std::endl;
 
+AMateria *Character::hold = NULL;
+
 Character::Character(void) : _name("unnamed")
 {
 	for (unsigned i = 0; i < 4; i++)
@@ -27,6 +29,8 @@ Character::Character(Character const &tocopy)
 
 Character::~Character(void)
 {
+	if (this->hold != NULL)
+		delete this->hold;
 	for (unsigned i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] != NULL)
@@ -59,7 +63,7 @@ void	Character::equip(AMateria *m)
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
-			break ;
+			return ;
 		}
 	}
 	delete m;
@@ -72,6 +76,9 @@ void	Character::unequip(int idx)
 		cout << "Invalid index or inventory location is already empty" << endl;
 		return ;
 	}
+	if (this->hold != NULL)
+		delete this->hold;
+	this->hold = this->_inventory[idx];
 	this->_inventory[idx] = NULL;
 }
 

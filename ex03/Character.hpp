@@ -11,6 +11,7 @@ class Character : public ICharacter
 	protected:
 		string		_name;
 		AMateria*	_inventory[4];
+		static AMateria*	hold;
 
 	public:
 		Character(void);
