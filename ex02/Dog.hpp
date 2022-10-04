@@ -7,6 +7,9 @@ using std::string;
 
 class	Dog : public Animal
 {
+	private:
+		Brain	*_brain;
+
 	public:
 		Dog(void);
 		Dog(Dog const &tocopy);
@@ -16,8 +19,6 @@ class	Dog : public Animal
 		void	makeSound(void);
 
 		void	expressBrain(unsigned n) const;
-	private:
-		Brain	*_brain;
 };
 
 #endif

@@ -15,8 +15,6 @@ class	WrongCat : public WrongAnimal
 
 		//getters
 		// string	const &getType(void) const;
-	private:
-		string _type;
 };
 
 #endif

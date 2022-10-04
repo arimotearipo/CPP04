@@ -5,6 +5,9 @@
 
 class	Cat : public Animal
 {
+	private:
+		Brain	*_brain;
+
 	public:
 		Cat(void);
 		Cat(Cat const &tocopy);
@@ -13,10 +16,7 @@ class	Cat : public Animal
 
 		void	makeSound(void);
 
-
 		void	expressBrain(unsigned n) const;
-	private:
-		Brain	*_brain;
 };
 
 #endif

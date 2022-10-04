@@ -5,7 +5,7 @@ using std::endl;
 
 Cat::Cat(void) : Animal()
 {
-	Animal::_type = "Cat";
+	this->_type = "Cat"; // Using this->_type = "Cat" might also be the same
 	cout << YEL << "[CAT CLASS CONSTRUCTED]" << RESET << endl;
 }
 
