@@ -93,7 +93,6 @@ void	test(void)
 	cout << UWHT "Making Alpha use item at idx " << idx2 << " towards Bravo" RESET << endl;
 	a->use(idx2, *b);
 	cout << endl;
-	system("leaks finalfantasy");
 
 	cout << BYEL "ENDING PROGRAMME" RESET << endl;
 	delete a;
@@ -125,8 +124,21 @@ void	test2(void)
 	delete ms;
 }
 
+void	test3(void)
+{
+	ICharacter *a = new Character("a");
+	AMateria *c = new Cure();
+	a->equip(c);
+	ICharacter *b = new Character("b");
+	a->unequip(0);
+	// (void)b;
+	delete a;
+	delete b;
+}
+
 int	main(void)
 {
-	test2();
+	test();
+	// system("leaks finalfantasy");
 	return (0);
 }

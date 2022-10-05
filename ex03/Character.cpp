@@ -30,7 +30,10 @@ Character::Character(Character const &tocopy)
 Character::~Character(void)
 {
 	if (this->hold != NULL)
+	{
 		delete this->hold;
+		this->hold = NULL;
+	}
 	for (unsigned i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i] != NULL)
