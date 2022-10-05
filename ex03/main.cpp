@@ -124,21 +124,27 @@ void	test2(void)
 	delete ms;
 }
 
+
+// Creating this function specifically to test if instantiating a 2nd
+// character object will reset the Character::hold attribute back to NULL
+// Answer is; no it won't
 void	test3(void)
 {
-	ICharacter *a = new Character("a");
+	Character a("a");
 	AMateria *c = new Cure();
-	a->equip(c);
-	ICharacter *b = new Character("b");
-	a->unequip(0);
+	a.equip(c);
+	cout << "1" << endl;
+	a.showInventory();
+	a.unequip(0);
+	cout << "2" << endl;
+	a.showInventory();
+	Character b("b");
 	// (void)b;
-	delete a;
-	delete b;
 }
 
 int	main(void)
 {
-	test();
+	test3();
 	// system("leaks finalfantasy");
 	return (0);
 }
